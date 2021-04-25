@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class UserDB : MonoBehaviour
 {
+    public float CurrentCoin, CurrentCrustal, CurrentEXP;
     // Start is called before the first frame update
     void Start()
     {
