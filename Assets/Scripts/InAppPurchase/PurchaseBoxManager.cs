@@ -17,6 +17,7 @@ public class PurchaseBoxManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetThisBoxData();
     }
 
     // Update is called once per frame
@@ -25,13 +26,22 @@ public class PurchaseBoxManager : MonoBehaviour
         
     }
 
-    public void SetThisBoxData(CurrencyRateData dataIndex) 
+    private void SetThisBoxData() 
     {
+        if (this.name == "ShopBox") return;
         string[] getindex = this.gameObject.name.Split('_');
 
-        AmountText.text = dataIndex.Amount.ToString();
-        PriceText.text = dataIndex.Price + " USD";
+        AmountText.text = m_Data.Amount.ToString();
+        PriceText.text = m_Data.Price + " "+RealCurrencyType.USD.ToString();
         DoubleExpText.text = int.Parse(getindex[1])+1 + "h of Double EXP";
-        FullPriceText.gameObject.SetActive(m_Data.DiscountPercent<=0);
+        FullPriceText.gameObject.SetActive(m_Data.DiscountPercent> 0);
+
+        CurrencyImage.sprite = m_Data.CurrencySprite;
+        CurrencyIcon.sprite = m_Data.Icon;
+    }
+
+    public void PurchaseItemInThisBox() 
+    {
+        TopPanelContainer.I.UpdateCurrency(m_Data.Type,m_Data.Amount);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour
 {
     public GameObject BoxGo;
-    public RectTransform ShopTransform;
+    public RectTransform CoinTransform, CrystalTransform;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -14,17 +14,30 @@ public class SpawnController : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < ShopTransform.childCount; i++)
+        for (int i = 0; i < CoinTransform.childCount; i++)
         {
-            ShopTransform.GetChild(i).gameObject.SetActive(false); ;
+            CoinTransform.GetChild(i).gameObject.SetActive(false); ;
         }
         for (int i = 0; i < DataBaseManager.I.CoinData.Count; i++)
         {
-            GameObject coinGo = Instantiate(BoxGo, ShopTransform);
+            GameObject coinGo = Instantiate(BoxGo, CoinTransform);
             coinGo.SetActive(true);
-            coinGo.transform.SetParent(ShopTransform,false);
+            coinGo.transform.SetParent(CoinTransform,false);
             coinGo.name = "CoinData_" + i;
             SetBoxAmount(coinGo, i, DataBaseManager.I.CoinData);
+        }
+
+        for (int i = 0; i < CrystalTransform.childCount; i++)
+        {
+            CrystalTransform.GetChild(i).gameObject.SetActive(false); ;
+        }
+        for (int i = 0; i < DataBaseManager.I.CrystalData.Count; i++)
+        {
+            GameObject crystalGo = Instantiate(BoxGo, CrystalTransform);
+            crystalGo.SetActive(true);
+            crystalGo.transform.SetParent(CrystalTransform, false);
+            crystalGo.name = "CrystalData_" + i;
+            SetBoxAmount(crystalGo, i, DataBaseManager.I.CrystalData);
         }
     }
 

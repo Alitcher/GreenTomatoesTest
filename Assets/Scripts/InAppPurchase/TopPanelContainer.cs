@@ -6,12 +6,20 @@ using System;
 
 public class TopPanelContainer : MonoBehaviour
 {
+    public static TopPanelContainer I { get { return top; } }
+    private static TopPanelContainer top;
     public Text CoinText, CrystalText;
-    public float CoinAmount, CrystalAmount;
     public TimeSpan span;
-    // Start is called before the first frame update
-    void Start()
+
+    private float CoinAmount, CrystalAmount;
+
+    private void Awake()
     {
+        if (top == null) top = this;
+        else if (top != null && top != this)
+        {
+            Destroy(gameObject);
+        }
         SetCurrency();
     }
 
@@ -21,8 +29,19 @@ public class TopPanelContainer : MonoBehaviour
         CrystalText.text = CrystalAmount.ToString();
     }
     // Update is called once per frame
-    void Update()
+    public void UpdateCurrency(GameCurrencyType type,float amount)
     {
-        
+        switch (type)
+        {
+            case GameCurrencyType.Coin:
+                CoinAmount += amount;
+                break;
+            case GameCurrencyType.Crystal:
+                CrystalAmount += amount;
+                break;
+            default:
+                break;
+        }
+        SetCurrency();
     }
 }
