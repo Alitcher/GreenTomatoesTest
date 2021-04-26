@@ -335,6 +335,7 @@ MonoBehaviour:
   CurrencyImage: {fileID: 5157126140921452269}
   CurrencyIcon: {fileID: 5157126140584827299}
   BoostGO: {fileID: 5157126140822050114}
+  FlyingGo: {fileID: 0}
   m_Data:
     Type: 0
     CurrencySprite: {fileID: 0}
@@ -342,6 +343,7 @@ MonoBehaviour:
     Amount: 0
     Price: 0
     DiscountPercent: 0
+    IconToFlyAmount: 0
   AmountF: 0
   PriceF: 0
   DoubleExpF: 0
@@ -535,7 +537,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5157126140921452271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5157126140750329297}

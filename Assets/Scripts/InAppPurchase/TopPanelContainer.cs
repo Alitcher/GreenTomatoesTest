@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System;
 
-public class TopPanelContainer : MonoBehaviour
+public class TopPanelContainer : UserData
 {
     public static TopPanelContainer I { get { return top; } }
     private static TopPanelContainer top;
-    public Text CoinText, CrystalText;
-    public TimeSpan span;
+    [SerializeField] private Text CoinText, CrystalText, LevelText;
+    [SerializeField] private TextMeshProUGUI TimeRemainingText;
+    [SerializeField] private Image CoinIcon, CrystalIcon;
+    [SerializeField] private TimeSpan span;
 
-    private float CoinAmount, CrystalAmount;
-
+    private DateTime destination;
     private void Awake()
     {
         if (top == null) top = this;
@@ -20,13 +22,22 @@ public class TopPanelContainer : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SetCurrency();
+        SetInfo();
     }
 
-    public void SetCurrency() 
+    private void Update()
     {
+        span = destination - DateTime.Now;
+        TimeRemainingText.text = String.Format("{0}:{1}:{2}", span.Hours.ToString("D2"), span.Minutes.ToString("D2"), span.Seconds.ToString("D2"));
+    }
+
+    public void SetInfo() 
+    {
+        destination = DateTime.Now.AddDays(1);
+
         CoinText.text = CoinAmount.ToString();
         CrystalText.text = CrystalAmount.ToString();
+        LevelText.text = Level.ToString(); //"1";//
     }
     // Update is called once per frame
     public void UpdateCurrency(GameCurrencyType type,float amount)
@@ -42,6 +53,6 @@ public class TopPanelContainer : MonoBehaviour
             default:
                 break;
         }
-        SetCurrency();
+        SetInfo();
     }
 }

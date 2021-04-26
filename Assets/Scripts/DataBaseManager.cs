@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,11 +8,12 @@ public class DataBaseManager : MonoBehaviour
 {
     public static DataBaseManager I { get { return DB; } }
     private static DataBaseManager DB;
+    public List<GameObject> CoinBoxes, CrystalBoxes;
     public List<CurrencyRateData> CoinData, CrystalData;
     public AnimationCurve[] AnimCurve;
-
+    public Transform[] Target = new Transform[2];
+    public Action OnDiscountOver;
     public float DiscountPercent;
-
     private void Awake()
     {
         if (DB == null) DB = this;
@@ -19,6 +21,13 @@ public class DataBaseManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+    }
+
+
+    public bool IsPromotionOff()
+    {
+        return (UserData.PurchaseCount >= 2);
     }
 }
 public enum SoundName 
@@ -49,6 +58,6 @@ public struct CurrencyRateData
     public Sprite Icon;
     public float Amount;
     public float Price;
-    public float DiscountPercent;
+    public int IconToFlyAmount;
 }
 

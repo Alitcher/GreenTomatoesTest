@@ -394,7 +394,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 456934783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8967541841404576419, guid: af777f6d847374b4d808d5c7d21eb6dd,
+          type: 3}
+        m_MethodName: ClickAnyButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &530217858
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +733,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637007152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148119107}
@@ -793,7 +805,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714877576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -222.99983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2054221397}
@@ -1868,7 +1880,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1678319133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8967541841404576419, guid: af777f6d847374b4d808d5c7d21eb6dd,
+          type: 3}
+        m_MethodName: ClickAnyButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1689855135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd849e6889413c048a4878e55c7b72f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinText: {fileID: 823405028}
-  CrystalText: {fileID: 1525217894}
   CoinAmount: 0
   CrystalAmount: 0
+  Level: 0
+  CoinText: {fileID: 823405028}
+  CrystalText: {fileID: 1525217894}
+  LevelText: {fileID: 1973371201}
+  TimeRemainingText: {fileID: 971687082}
+  CoinIcon: {fileID: 637007154}
+  CrystalIcon: {fileID: 714877578}

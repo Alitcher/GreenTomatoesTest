@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,11 @@ public class SpawnController : MonoBehaviour
 
     private void Start()
     {
+        SpawnCurrencyBox();
+    }
+
+    private void SpawnCurrencyBox() 
+    {
         for (int i = 0; i < CoinTransform.childCount; i++)
         {
             CoinTransform.GetChild(i).gameObject.SetActive(false); ;
@@ -22,9 +28,10 @@ public class SpawnController : MonoBehaviour
         {
             GameObject coinGo = Instantiate(BoxGo, CoinTransform);
             coinGo.SetActive(true);
-            coinGo.transform.SetParent(CoinTransform,false);
+            coinGo.transform.SetParent(CoinTransform, false);
             coinGo.name = "CoinData_" + i;
             SetBoxAmount(coinGo, i, DataBaseManager.I.CoinData);
+            DataBaseManager.I.CoinBoxes.Add(coinGo);
         }
 
         for (int i = 0; i < CrystalTransform.childCount; i++)
@@ -38,18 +45,19 @@ public class SpawnController : MonoBehaviour
             crystalGo.transform.SetParent(CrystalTransform, false);
             crystalGo.name = "CrystalData_" + i;
             SetBoxAmount(crystalGo, i, DataBaseManager.I.CrystalData);
+            DataBaseManager.I.CrystalBoxes.Add(crystalGo);
+
         }
     }
-
     private void SetBoxAmount(GameObject gameCurrencyTypeGO ,int index, List<CurrencyRateData> data) 
     {
         PurchaseBoxManager box = gameCurrencyTypeGO.GetComponent<PurchaseBoxManager>();
+        box.OnDiscountOver = DataBaseManager.I.OnDiscountOver;
         box.m_Data = data[index];
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
 }

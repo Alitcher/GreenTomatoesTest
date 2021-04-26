@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 50
     m_Right: 0
     m_Top: 169
     m_Bottom: -109
@@ -81,6 +81,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1651999334645118499}
     m_Modifications:
+    - target: {fileID: 3065796920885956060, guid: b7ca9e70f948158479f7e8452351364d,
+        type: 3}
+      propertyPath: FlyingGo
+      value: 
+      objectReference: {fileID: 744646975164848144, guid: 0306deeb5b0f9e74e862458dc256beba,
+        type: 3}
     - target: {fileID: 5157126140499835480, guid: b7ca9e70f948158479f7e8452351364d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
