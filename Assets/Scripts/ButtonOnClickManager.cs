@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ButtonOnClickManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PurchaseSuccessful() 
     {
-        
+        SoundController.Instance.Play(SoundName.Purchased.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ClickAnyButtons() 
     {
-        
+        SoundController.Instance.Play(SoundName.Click.ToString());
     }
+
+    public void QuitThisApp() 
+    {
+
+        Application.Quit();
+    }
+
 }
